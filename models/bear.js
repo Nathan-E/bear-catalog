@@ -34,5 +34,4 @@ function validateBear(bear){
   return Joi.validate(bear, schema);
 }
 
-exports.Bear = Bear;
-exports.validateBear = validateBear;
+module.exports = { Bear, validateBear };

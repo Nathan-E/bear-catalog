@@ -9,3 +9,11 @@ router.get('/', async (req, res) => {
   res.send(bears);
 })
 
+//gets the a particuler bear that matched with the id
+router.get('/:id', async(req, res) => {
+  //checks for the field with that matches with the id given
+  const bear = await Bear.findById(req.params.id);
+  if(!bear) return res.status(400).send('The bear with the id does not exist');
+
+  
+})

@@ -51,3 +51,5 @@ router.delete('/:id', async (req, res) => {
 
   res.send(bear);
 })
+
+module.exports = router;

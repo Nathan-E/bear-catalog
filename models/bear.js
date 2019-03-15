@@ -8,9 +8,16 @@ const bearSchema = new mongoose.Schema({
   age: {
     type: Number,
     min: 1,
+    required: true
   },
-  color: String,
-  species: String
+  color: {
+    type: String,
+    required: true
+  },
+  species: {
+    type: String,
+    required: true
+  }
 })
 
 //Bear collection model

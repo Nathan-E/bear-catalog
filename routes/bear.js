@@ -25,11 +25,13 @@ router.post('/', async(req, res) => {
   if(error) return res.status(400).send(error.details[0].message);
 
   const bear = new Bear(req.body);
+  bear = await bear.save();
+
   res.send(bear);
 })
 
 //update a bear field in the bear collection
-router.put('/:id', (req, res) => {
+router.put('/:id', async (req, res) => {
   //validates the input/request body against the schema
   const { error } = validateBear(req.body);
   if (error) return res.status(400).send(error.details[0].message);
@@ -38,5 +40,14 @@ router.put('/:id', (req, res) => {
   const bear = await Bear.findByIdAndUpdate(req.params.id, req.body, {new: true});
   if (!bear) return res.status(400).send('The bear with the id does not exist');
   
+  res.send(bear);
+})
+
+//delete a bear field in the bear collection
+router.delete('/:id', async (req, res) => {
+  //checks for the field with that matches with the id given
+  const bear = await Bear.findByIdAndRemove(req.params.id);
+  if (!bear) return res.status(400).send('The bear with the id does not exist');
+
   res.send(bear);
 })

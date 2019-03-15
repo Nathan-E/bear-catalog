@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/Nathan-E/bear-catalog/issues"
   },
-  "homepage": "https://github.com/Nathan-E/bear-catalog#readme"
+  "homepage": "https://github.com/Nathan-E/bear-catalog#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.19"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1",
+    "joi": "^14.3.1",
+    "nodemon": "^1.18.10"
+  }
 }

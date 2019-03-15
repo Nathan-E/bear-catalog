@@ -12,3 +12,6 @@ const bearSchema = new mongoose.Schema({
   color: String,
   specie: String
 })
+
+//Bear collection model
+const Bear = mongoose.model('bears', bearSchema);

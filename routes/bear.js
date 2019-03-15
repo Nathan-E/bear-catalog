@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 //gets the bear resource
-router.get('/', async (req, res) => {
+router.get('/', async(req, res) => {
   //finds the bear collection and sort it by name
   const bears = Bear.find().sort('name');
   res.send(bears);
@@ -15,5 +15,6 @@ router.get('/:id', async(req, res) => {
   const bear = await Bear.findById(req.params.id);
   if(!bear) return res.status(400).send('The bear with the id does not exist');
 
-  
+  res.send(bear);
 })
+

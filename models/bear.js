@@ -9,5 +9,6 @@ const bearSchema = new mongoose.Schema({
     type: Number,
     min: 1,
   },
-  
+  color: String,
+  specie: String
 })

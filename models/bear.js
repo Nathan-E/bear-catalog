@@ -10,13 +10,19 @@ const bearSchema = new mongoose.Schema({
     min: 1,
   },
   color: String,
-  specie: String
+  species: String
 })
 
 //Bear collection model
 const Bear = mongoose.model('bears', bearSchema);
 
+//validates the input
 function validateBear(bear){
-  const schema = 
-
+  const schema = {
+    name: Joi.string(),
+    age: Joi.number(),
+    color: Joi.string(),
+    species: Joi.string()
+  }
+  return Joi.validate(bear, schema);
 }

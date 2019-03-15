@@ -15,3 +15,8 @@ const bearSchema = new mongoose.Schema({
 
 //Bear collection model
 const Bear = mongoose.model('bears', bearSchema);
+
+function validateBear(bear){
+  const schema = 
+
+}

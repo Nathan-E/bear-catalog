@@ -18,3 +18,9 @@ router.get('/:id', async(req, res) => {
   res.send(bear);
 })
 
+//add a new bear field in the bear collection
+router.post('/', async(req, res) => {
+  const { error } = validateBear(req.body);
+  if(error) return res.status(400)
+
+})

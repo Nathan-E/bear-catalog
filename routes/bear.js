@@ -20,7 +20,10 @@ router.get('/:id', async(req, res) => {
 
 //add a new bear field in the bear collection
 router.post('/', async(req, res) => {
+  //validates the input/request body against the schema
   const { error } = validateBear(req.body);
-  if(error) return res.status(400)
+  if(error) return res.status(400).send(error.details[0].message);
 
+  const bear = new Bear(req.body);
+  res.send(bear);
 })

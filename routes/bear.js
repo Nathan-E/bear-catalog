@@ -30,8 +30,13 @@ router.post('/', async(req, res) => {
 
 //update a bear field in the bear collection
 router.put('/:id', (req, res) => {
-   //checks for the field with that matches with the id given
-   const bear = await Bear.findById(req.params.id);
-   if (!bear) return res.status(400).send('The bear with the id does not exist');
+  //validates the input/request body against the schema
+  const { error } = validateBear(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
 
+  //checks for the field with that matches with the id given
+  const bear = await Bear.findByIdAndUpdate(req.params.id, req.body, {new: true});
+  if (!bear) return res.status(400).send('The bear with the id does not exist');
+  
+  res.send(bear);
 })

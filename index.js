@@ -9,3 +9,5 @@ app.use(express.urlencoded({ extended: true }));
 
 //Bear Router Middleware
 router.use('./api/bears', bears);
+
+const port = process.env.PORT || 3000;
